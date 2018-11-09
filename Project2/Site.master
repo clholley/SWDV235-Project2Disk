@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title>Cindy's Media</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="Scripts/jquery-2.2.4.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        .jumbotron {
+            background-color: #3f3fd9;
+        }
+        .jumbotron h1 {
+            color: white;
+        }
+        body {
+            background-color: lavender;
+        } 
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="form1" runat="server" class="form-horizontal">
+            <!--Header Section-->
+            <header class="jumbotron">
+                <img  src="Images/calico.jpg" alt="black cat" />
+                <h1>Cindy's Media</h1>
+            </header>
+
+            <div class="row">
+                <!--Navigation Section-->
+                <aside class="col-sm-1">
+                    <nav>
+                        <asp:BulletedList ID="blNav" runat="server" DisplayMode="HyperLink" 
+                            CssClass="nav nav-pills nav-stacked">
+
+                            <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
+                            <asp:ListItem Value="~/Borrower.aspx">Borrower</asp:ListItem>
+                            <asp:ListItem Value="~/Media.aspx">Media</asp:ListItem>
+                            <asp:ListItem Value="~/Artists.aspx">Artists</asp:ListItem>
+                            <asp:ListItem Value="~/Contact.aspx">Contact</asp:ListItem>
+                        </asp:BulletedList>
+                    </nav>
+                    <div class="col-sm-8"><!--Empty column for spacing--></div>
+                </aside>
+
+                <!--Main Content Section-->
+                <main class="col-sm-9">
+                        <h1><asp:Label ID="lblPageHeader" runat="server"></asp:Label></h1>
+                        <link href="Content/site.css" rel="stylesheet" />
+                        <asp:ContentPlaceHolder ID="mainContentPlaceholder" runat="server">
+                        </asp:ContentPlaceHolder>
+                </main>
+            </div>
+
+            <!--Footer Section-->
+            <footer class="text-center text-info">
+                <asp:ContentPlaceHolder ID="footerPlaceHolder" runat="server">
+                    <br /><br />
+                    <p>&copy; <asp:Label ID="lblYear" runat="server"></asp:Label> 
+                    Cindy's Media</p>
+                </asp:ContentPlaceHolder>
+            </footer>
+        </form>
+    </div><!--end container-->
+</body>
+</html>
+
