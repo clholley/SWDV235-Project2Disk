@@ -1,6 +1,15 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
 
-<<!DOCTYPE html>
+<!--
+    Date        Programmer Name     Description
+    11/9/2018   Cindy Holley        Create website for Cindy's Media inventory
+                                    Add borrower, artist, media, contact pages and site.master
+    11/13/2018  Cindy Holley        Add modification logs
+    11/18/2018  Cindy Holley        Update navigation, add script to validate artist insert procedure
+
+-->  
+
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -11,6 +20,17 @@
     <script src="Scripts/jquery-2.2.4.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <script>  
+        function Validate(sender, args)  
+        {  
+            args.IsValid = false;  
+            if(args.Value != "")  
+            {  
+                args.IsValid = true;  
+            }  
+        }  
+    </script> 
 
     <style>
         .jumbotron {
@@ -30,35 +50,41 @@
         <form id="form1" runat="server" class="form-horizontal">
             <!--Header Section-->
             <header class="jumbotron">
-                <img  src="Images/calico.jpg" alt="black cat" />
+                <img  src="Images/calico.jpg" alt="calico cat" />
                 <h1>Cindy's Media</h1>
             </header>
 
             <div class="row">
                 <!--Navigation Section-->
-                <aside class="col-sm-1">
+                <div class="col-sm-3">
                     <nav>
-                        <asp:BulletedList ID="blNav" runat="server" DisplayMode="HyperLink" 
-                            CssClass="nav nav-pills nav-stacked">
+                        <asp:BulletedList ID="blNav" runat="server" 
+                            DisplayMode="HyperLink" CssClass="list-unstyled">
 
                             <asp:ListItem Value="~/Default.aspx">Home</asp:ListItem>
-                            <asp:ListItem Value="~/Borrower.aspx">Borrower</asp:ListItem>
-                            <asp:ListItem Value="~/Media.aspx">Media</asp:ListItem>
-                            <asp:ListItem Value="~/Artists.aspx">Artists</asp:ListItem>
+                            <asp:ListItem Value="~/HasBorrower.aspx">Check Out</asp:ListItem>
+                            <asp:ListItem Value="~/StatusReport.aspx">Status Report</asp:ListItem>
+                            <asp:ListItem Value="~/Borrower.aspx">New Borrower Sign Up</asp:ListItem>    
+                            
+                            <asp:ListItem Value="~/Artists.aspx">Update Artists</asp:ListItem>                           
+                            <asp:ListItem Value="~/BorrowerMaintenance.aspx">Update Borrowers</asp:ListItem>
+                            <asp:ListItem Value="~/Media.aspx">Update Media</asp:ListItem>
+                            
                             <asp:ListItem Value="~/Contact.aspx">Contact</asp:ListItem>
                         </asp:BulletedList>
                     </nav>
-                    <div class="col-sm-8"><!--Empty column for spacing--></div>
-                </aside>
+                </div>
 
                 <!--Main Content Section-->
                 <main class="col-sm-9">
-                        <h1><asp:Label ID="lblPageHeader" runat="server"></asp:Label></h1>
-                        <link href="Content/site.css" rel="stylesheet" />
-                        <asp:ContentPlaceHolder ID="mainContentPlaceholder" runat="server">
-                        </asp:ContentPlaceHolder>
+                    <h1><asp:Label ID="lblPageHeader" runat="server"></asp:Label></h1>
+                    <link href="Content/site.css" rel="stylesheet" />
+
+                    <!--Main Content Placeholder-->
+                    <asp:ContentPlaceHolder ID="mainContentPlaceholder" runat="server">
+                    </asp:ContentPlaceHolder>
                 </main>
-            </div>
+            </div><!--end row-->
 
             <!--Footer Section-->
             <footer class="text-center text-info">

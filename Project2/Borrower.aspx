@@ -1,9 +1,21 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Borrower.aspx.cs" Inherits="Borrower" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" 
+    CodeFile="Borrower.aspx.cs" Inherits="Borrower" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="mainContentPlaceholder" runat="server">  
-    
-        <!--Borrower Page-->
+
+<!--Borrower Page
+    Date        Programmer Name     Description
+    11/9/2018   Cindy Holley        Create website for Cindy's Media inventory
+                                    Add borrower, artist, media, contact pages and site.master
+    11/13/2018  Cindy Holley        Add modification logs
+    11/27/2018  Cindy Holley        Add modification logs to.cs pages
+
+-->    
+
         <h2>Who wants to borrow my stuff?</h2>
+        <p>If you would like to borrow my movies and music, 
+            you must sign up first. Please fill out the form and click Submit.
+        </p>
         
         <!--error message-->
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
@@ -84,6 +96,7 @@
                         CssClass="btn btn-primary" 
                         OnClick="btnSubmit_Click"  />
 
+
                     <asp:Button ID="btnClear" runat="server" 
                         Text="  Clear  "
                         CssClass="btn btn-primary" 
@@ -96,7 +109,9 @@
         <%-- message label --%>
         <div class="form-group">
             <div class="col-sm-offset-1 col-sm-11">
-                <asp:Label ID="lblMessage" runat="server" CssClass="text-info" ValidateRequestMode="Disabled"></asp:Label>
+                <asp:Label ID="lblMessage" runat="server" 
+                    CssClass="text-info" 
+                    ValidateRequestMode="Disabled"></asp:Label>
             </div>
         </div>
 
