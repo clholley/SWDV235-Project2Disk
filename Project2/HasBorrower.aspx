@@ -3,12 +3,12 @@
 
 <asp:Content ID="Content" ContentPlaceHolderID="mainContentPlaceholder" runat="server">   
 
-<!--CheckOut Page
+<!--HasBorrower Page
 
     Date        Programmer Name     Description
-    11/28/2018   Cindy Holley       Create HasBorrower/Checkout page 
-
-    https://docs.microsoft.com/en-us/aspnet/web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs 
+    11/28/2018   Cindy Holley       Create HasBorrower page 
+    12/6/2018    Cindy Holley       Update HasBorrower page 
+     
 --> 
 
 <!--Table of media with edit and delete stored procedures and validation-->
@@ -67,7 +67,7 @@
 
 
     <!--Form to borrow media-->
-    <div class="col-xs-9">
+    <div class="col-xs-10">
         <p><asp:Label ID="lblError" runat="server" 
                 EnableViewState="false" 
                 CssClass="text-danger"></asp:Label></p>
@@ -94,7 +94,9 @@
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
                             ConnectionString='<%$ ConnectionStrings:disk_inventory_2ConnectionString %>' 
-                            SelectCommand="SELECT * FROM [Borrower] ORDER BY [borrower_id]" >
+                            SelectCommand="SELECT [borrower_id]
+                                FROM [Borrower] 
+                                ORDER BY [borrower_id]" >
                         </asp:SqlDataSource>
                     </InsertItemTemplate>  
                 </asp:TemplateField>
@@ -104,7 +106,7 @@
                         <asp:TextBox ID="txtmedia_id" runat="server" width="400px" 
                             Text='<%# Bind("media_id") %>'></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvmedia_id" runat="server" 
-                            ErrorMessage="Must enter a media ID number." 
+                            ErrorMessage="Must enter media ID number." 
                             ClientValidationFunction="Validate" 
                             ControlToValidate="txtmedia_id"  
                             ValidateEmptyText="true" 
@@ -119,17 +121,26 @@
                     <InsertItemTemplate> 
                         <asp:TextBox ID="txtcheckout_date" runat="server" 
                             Text='<%# Bind("checkout_date") %>'
-                            TextMode="DateTime">
+                            TextMode="Date" >
                         </asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvcheckout_date" runat="server" 
+                            ControlToValidate="txtcheckout_date"
                             ErrorMessage="Must enter a valid date." 
-                            ClientValidationFunction="Validate" 
-                            ControlToValidate="txtcheckout_date" 
+                            ClientValidationFunction="Validate"                              
                             ValidateEmptyText="true" 
                             ValidationGroup="New" 
-                            Display="Dynamic" 
-                            CssClass="text-danger" >
+                            CssClass="text-danger"
+                            Display="Dynamic"   >
                         </asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="cvcheckout_date" runat="server" 
+                            Text="Must be a valid date" 
+                            CssClass="text-danger"
+                            Display="Dynamic" 
+                            ControlToValidate="txtcheckout_date" 
+                            Type="Date" 
+                            Operator="DataTypeCheck">
+                        </asp:CompareValidator>
+
                     </InsertItemTemplate>   
                 </asp:TemplateField>   
             

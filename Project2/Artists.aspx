@@ -10,7 +10,7 @@
                                     Add borrower, artist, media, contact pages and site.master
     11/13/2018  Cindy Holley        Add modification logs
     11/18/2018  Cindy Holley        Update artist page and connect to database
-
+    
 --> 
 
     <!--Table to view artists with edit and delete stored procedures with validation-->
@@ -33,8 +33,9 @@
             <AlternatingRowStyle BackColor="#DCDCDC" />
 
             <Columns>
-                <asp:BoundField DataField="artist_id" HeaderText="Artist ID" SortExpression="artist_id" ReadOnly="True" InsertVisible="False" />
-                
+                <asp:BoundField DataField="artist_id" HeaderText="Artist ID" SortExpression="artist_id" 
+                    ReadOnly="True" InsertVisible="False" />                
+
                 <asp:TemplateField HeaderText="Artist Type" SortExpression="artist_type">
                     <EditItemTemplate>
                         <div class="col-xs-10 col-edit">
@@ -187,7 +188,7 @@
                             <asp:ListItem Value="actor" Text="&nbsp  Actor" />                         
                             <asp:ListItem Value="singer" Text="&nbsp  Singer" /> 
                             <asp:ListItem Value="musician" Text="&nbsp  Musican" />                        
-                            <asp:ListItem Value="group" Text="&nbsp  Band or Group" /> 
+                            <asp:ListItem Value="group" Text="&nbsp  Group" /> 
                         </asp:RadioButtonList>
                     </InsertItemTemplate> 
                 </asp:TemplateField>            
@@ -203,8 +204,7 @@
                             ValidateEmptyText="true" 
                             ValidationGroup="New" 
                             Display="Dynamic" 
-                            CssClass="text-danger" >
-                        </asp:CustomValidator>  
+                            CssClass="text-danger" > </asp:CustomValidator>  
                     </InsertItemTemplate>   
                 </asp:TemplateField>
 

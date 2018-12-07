@@ -1,9 +1,9 @@
-﻿/* CheckOut Page
+﻿/* HasBorrower Page
 
    Date         Programmer Name     Description
    11/28/2018   Cindy Holley        Create HasBorrower page
-    
-*/ 
+   12/6/2018    Cindy Holley        Update HasBorrower page 
+*/
 
 using System;
 using System.Collections.Generic;
@@ -16,6 +16,8 @@ public partial class HasBorrower : System.Web.UI.Page
 {
     public int media_id { get; set; }
     public int borrower_id { get; set; }
+    public string borrower_fname { get; set; }
+    public string borrower_lname { get; set; }
     public DateTime checkout_date { get; set; }
     public DateTime return_date { get; set; }
     public string status_code { get; set; }

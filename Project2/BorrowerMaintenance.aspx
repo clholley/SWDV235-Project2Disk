@@ -8,6 +8,7 @@
     Date        Programmer Name     Description
     11/18/2018  Cindy Holley        Add borrower maintenance page with validation, connect to db
     11/27/2018  Cindy Holley        Add modification logs to.cs pages
+
 --> 
     
     <!--View Borrower Table with edit and delete stored procedures and validation-->

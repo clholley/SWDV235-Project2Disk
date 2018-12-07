@@ -3,9 +3,9 @@
 
 <asp:Content ID="Content" ContentPlaceHolderID="mainContentPlaceholder" runat="server">   
 
-<!--CheckOut Page
+<!--Status Report Page
 
-    Date        Programmer Name     Description
+    Date         Programmer Name    Description
     11/28/2018   Cindy Holley       Create Status Report page 
 
 --> 

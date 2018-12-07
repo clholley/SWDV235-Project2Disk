@@ -18,6 +18,9 @@ using System.Web.UI.WebControls;
 
 public partial class Artists : System.Web.UI.Page
 {
+    public string artist_fname { get; set; }
+    public string artist_group { get; set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -65,6 +68,7 @@ public partial class Artists : System.Web.UI.Page
             lblError.Text = DatabaseErrorMessage(e.Exception.Message);
             e.ExceptionHandled = true;
         }
+
     }//end 
 
 
